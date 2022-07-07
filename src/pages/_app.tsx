@@ -5,13 +5,16 @@ import { ChakraProvider, ColorModeScript, theme } from "@chakra-ui/react";
 
 import "@talisman-connect/components/talisman-connect-components.esm.css";
 import "@talisman-connect/ui/talisman-connect-ui.esm.css";
+import { SubsocialApiProvider } from "../common/providers/SubsocialApiProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <SubsocialApiProvider>
+      <ChakraProvider theme={theme}>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </SubsocialApiProvider>
   );
 }
 

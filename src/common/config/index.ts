@@ -1,0 +1,17 @@
+export const subsocialConfig = {
+  appName: "rSocial",
+  ipfsUrl: "https://app.subsocial.network/ipfs",
+  substrateNodeUrl: "wss://rpc.subsocial.network",
+  offchainUrl: "https://app.subsocial.network/offchain",
+  offchainWs: "wss://staging.subsocial.network/notif-ws",
+  addFileUrl: "https://staging.subsocial.network/offchain/v1/ipfs/addFile",
+  ipfsNodeUrl: "https://staging.subsocial.network/ipfs",
+  infinityScrollOffset: 20,
+  infinityScrollFirstPage: 1,
+  addressLengthShort: 13,
+  addressLengthLong: 17,
+  loadImageLimitMb: 2 * 1024 * 1024,
+  isOffChainFeed: false,
+  enableTips: false,
+  recommendedSpaceIds: ["1001", "1002"],
+};
