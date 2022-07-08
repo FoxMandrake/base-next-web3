@@ -47,34 +47,36 @@ export const Home = () => {
 
   return (
     <Box>
-      <Container maxWidth="3xl">
+      <Container px={0}>
         <Heading as="h1" fontSize="6xl">
           Questions
         </Heading>
-      </Container>
-
-      <VStack alignItems="flex-start">
-        {posts &&
-          posts.length > 0 &&
-          posts?.map((post, id) => {
-            return (
-              <Box
-                key={post.struct.id}
-                sx={{
-                  py: 4,
-                  borderTop: "1px solid",
-                  borderColor: "gray.300",
-                  width: "100%",
-                }}
-              >
-                <Container maxWidth="3xl">
+        <VStack alignItems="flex-start" spacing={3}>
+          {posts &&
+            posts.length > 0 &&
+            posts?.map((post, id) => {
+              return (
+                <Box
+                  key={post.struct.id}
+                  sx={{
+                    py: 4,
+                    px: 4,
+                    border: "1px solid",
+                    borderColor: "gray.300",
+                    bg: "white",
+                    width: "100%",
+                  }}
+                >
                   <Container ml={0} pl={0}>
-                    <Heading as="h5" fontSize="2xl">
+                    <Heading as="h5" fontSize="xl" mb={1}>
                       {post.content?.title}
                     </Heading>
-                    <Text as="h5" fontSize="sm">
-                      {post.content?.body}
-                    </Text>
+                    {post.content?.body && (
+                      <Text as="h5" fontSize="sm">
+                        {post.content?.body.substring(0, 300)}
+                        {post.content?.body?.length > 300 ? "..." : ""}
+                      </Text>
+                    )}
                   </Container>
                   <HStack pt={4}>
                     {post.content &&
@@ -94,12 +96,15 @@ export const Home = () => {
                           </Badge>
                         );
                       })}
+                    <Text fontSize="sm">
+                      {post.struct.repliesCount.toString()} answers
+                    </Text>
                   </HStack>
-                </Container>
-              </Box>
-            );
-          })}
-      </VStack>
+                </Box>
+              );
+            })}
+        </VStack>
+      </Container>
     </Box>
   );
 };
